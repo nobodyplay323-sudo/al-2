@@ -1,53 +1,52 @@
 import { useEffect } from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { HOME } from "@/constants/testIds";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useLenis } from "lenis/react";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+import SmoothScroll from "@/components/site/SmoothScroll";
+import NoiseOverlay from "@/components/site/NoiseOverlay";
+import Navbar from "@/components/site/Navbar";
+import Footer from "@/components/site/Footer";
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+import Home from "@/pages/Home";
+import Services from "@/pages/Services";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
+
+function ScrollManager() {
+  const { pathname } = useLocation();
+  const lenis = useLenis();
 
   useEffect(() => {
-    helloWorldApi();
-  }, []);
+    if (lenis) window.__lenis = lenis;
+  }, [lenis]);
 
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          data-testid={HOME.emergentLink}
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
-  );
-};
+  useEffect(() => {
+    if (lenis) lenis.scrollTo(0, { immediate: true });
+    else window.scrollTo(0, 0);
+  }, [pathname, lenis]);
+
+  return null;
+}
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-obsidian min-h-screen">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
+        <SmoothScroll>
+          <NoiseOverlay />
+          <ScrollManager />
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+        </SmoothScroll>
       </BrowserRouter>
     </div>
   );
