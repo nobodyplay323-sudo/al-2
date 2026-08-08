@@ -1,0 +1,143 @@
+{
+  "brand": {
+    "name": "Vantera",
+    "tagline": "Engineering the intelligence of tomorrow.",
+    "archetype": "Swiss & High-Contrast",
+    "vibe": "Modern, Minimalist, Awwwards-Level, Editorial Tech, Anti-Template"
+  },
+  "color_system": {
+    "css_variables": {
+      "--background": "240 10% 2%",
+      "--foreground": "60 10% 96%",
+      "--surface": "240 5% 6%",
+      "--border": "240 5% 12%",
+      "--accent": "12 100% 56%",
+      "--accent-foreground": "0 0% 100%",
+      "--muted": "240 5% 26%"
+    },
+    "hex_reference": {
+      "deep_obsidian": "#050505",
+      "surface_matte": "#0F0F11",
+      "bone_white": "#F4F4F0",
+      "steel_gray": "#8A8A8E",
+      "kinetic_vermilion": "#FF3E20",
+      "border_dim": "#1E1E20"
+    },
+    "rules": [
+      "No full-screen gradients. Use solid stark colors with subtle 1px borders.",
+      "The Vermilion accent is strictly for kinetic triggers (hover states, active dots, manifesto numbers).",
+      "Never use pure black #000000. Use Deep Obsidian (#050505) for organic depth.",
+      "Borders must be #1E1E20 to create the architectural 'Swiss' grid feeling."
+    ]
+  },
+  "typography": {
+    "fonts": {
+      "heading": "'Cabinet Grotesk', sans-serif",
+      "body": "'IBM Plex Sans', sans-serif",
+      "mono_accent": "'IBM Plex Mono', monospace"
+    },
+    "hierarchy": {
+      "h1_hero": "text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.85] uppercase",
+      "h2_section": "text-4xl sm:text-5xl font-bold tracking-tight leading-none",
+      "h3_card": "text-2xl font-medium tracking-tight",
+      "body": "text-base lg:text-lg font-light leading-relaxed text-[#8A8A8E]",
+      "overline_label": "text-xs font-mono uppercase tracking-[0.2em] text-[#F4F4F0]"
+    },
+    "rules": [
+      "Masked line-by-line reveal for H1 in the hero section is MANDATORY.",
+      "Never center-align headings. Always left-align to maintain the architectural grid.",
+      "Use IBM Plex Mono for technical metadata, timestamps, or small structural labels."
+    ]
+  },
+  "spacing_and_layout": {
+    "spacing_scale": ["p-4", "p-8", "p-16", "p-24", "p-32", "p-48"],
+    "grid_strategy": "The 'Tetris' Grid (Mode A)",
+    "rules": [
+      "Use massive gaps (gap-8 to gap-16) for macro-layout.",
+      "Implement asymmetrical bento layouts for the Selected Work section (e.g., col-span-8 next to col-span-4).",
+      "Leave empty grid cells to create dramatic negative space. Tension creates interest."
+    ]
+  },
+  "motion_language": {
+    "libraries": ["framer-motion", "lenis"],
+    "patterns": {
+      "smooth_scroll": "Wrap the app in Lenis for premium momentum scrolling.",
+      "masked_reveal": "For hero text: Wrap each line in overflow-hidden. Animate inner text from y: '100%' to y: '0%' with a custom cubic-bezier(0.76, 0, 0.24, 1) duration 1.2s.",
+      "image_clip": "For product photography: Reveal images using clip-path: inset(100% 0 0 0) to inset(0 0 0 0) on scroll.",
+      "parallax": "Use Framer Motion's useScroll and useTransform for a subtle Y-axis parallax on the Hero images."
+    },
+    "rules": [
+      "Motion must feel heavy and deliberate. No bouncy or springy easings. Use slow, friction-heavy cubic-beziers.",
+      "Respect prefers-reduced-motion media query."
+    ]
+  },
+  "visual_enhancers": {
+    "marquee": "Slow editorial band using react-fast-marquee. Text should be massive, outline-only (text-transparent border-white), moving slowly across the screen.",
+    "borders": "Use the 'Technical Look': border-collapse layouts for the Manifesto section, exposing the grid structure.",
+    "textures": "Apply a subtle SVG noise overlay fixed to the viewport with pointer-events-none and 3% opacity to kill digital flatness."
+  },
+  "component_styling": {
+    "buttons": "Sharp edges, zero border-radius. Background transparent with 1px border. On hover, background fills with bone_white, text turns black. Use Framer Motion for the fill animation.",
+    "inputs": "Shadcn UI customized: zero border-radius, background transparent, border-b only (underlined inputs). Focus state removes border-b and adds 1px solid bone_white border around.",
+    "cards": "Flat solid surfaces (#0F0F11). 1px subtle border. No shadows. Image containers within cards should have no padding."
+  },
+  "section_blueprint": {
+    "home": {
+      "hero": "Kinetic layout. Left side: Massive masked line-reveal text ('ENGINEERING', 'THE INTELLIGENCE', 'OF TOMORROW'). Right side/Background: Subtle 3D mesh or deeply blurred abstract architectural photo with Y-axis parallax.",
+      "editorial_marquee": "Massive outlined text moving slowly: 'AI PLATFORMS — DATA TOOLING — PRODUCT ENGINEERING — '",
+      "selected_work": "Asymmetrical Tetris Grid. Spotlight product photography. Images are clipped and scale up slightly (1.05) on hover.",
+      "manifesto": "Numbered chapters (01, 02, 03). Grid borders exposed. Left column contains huge Vermilion number, right column contains philosophical text about human-centered tech.",
+      "footer": "Massive text 'VANTERA'. Grid alignment, technical links."
+    },
+    "services": {
+      "layout": "List-based structural approach. Each service is a massive horizontal row with a top border. Hovering the row reveals a clipped image anchored to the cursor (Framer Motion)."
+    },
+    "about": {
+      "layout": "Editorial magazine style. Two-column text layout for the vision. High-contrast architectural office photography."
+    },
+    "contact": {
+      "layout": "Split screen. Left: Huge typography 'INITIATE'. Right: Functional form (Name, Email, Company, Message). Underlined inputs. Must connect to backend to save data."
+    }
+  },
+  "media": {
+    "image_urls": [
+      {
+        "category": "hero_abstract_tech",
+        "url": "https://images.unsplash.com/photo-1462556791646-c201b8241a94?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzF8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMG1pbmltYWwlMjB0ZWNofGVufDB8fHx8MTc4NjIwMDE4NHww&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract blue architectural geometry for subtle background parallax"
+      },
+      {
+        "category": "product_spotlight_1",
+        "url": "https://images.unsplash.com/photo-1761005653783-a48d969a3043?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHw0fHxtaW5pbWFsaXN0JTIwcHJvZHVjdCUyMHBob3RvZ3JhcGh5JTIwc3BvdGxpZ2h0fGVufDB8fHx8MTc4MzUyODA3OXww&ixlib=rb-4.1.0&q=85",
+        "description": "Red Sony headphones on dark surface for high-contrast showcase"
+      },
+      {
+        "category": "product_spotlight_2",
+        "url": "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwcHJvZHVjdCUyMHBob3RvZ3JhcGh5JTIwc3BvdGxpZ2h0fGVufDB8fHx8MTc4MzUyODA3OXww&ixlib=rb-4.1.0&q=85",
+        "description": "Minimalist black and white bottles balancing"
+      },
+      {
+        "category": "office_architecture",
+        "url": "https://images.unsplash.com/photo-1646153114001-495dfb56506d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwzfHxtaW5pbWFsaXN0JTIwbW9kZXJuJTIwb2ZmaWNlJTIwdGVhbXdvcmslMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzg0MzcyODM3fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Minimalist modern office space for the About page"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Install 'framer-motion', '@studio-freight/react-lenis', 'react-fast-marquee', 'lucide-react', and 'clsx'/'tailwind-merge'.",
+    "Use standard Tailwind configuration but map the CSS variables strictly.",
+    "Implement the Contact form with a working backend route using FastAPI. Save data to a simple local JSON or SQLite file.",
+    "DO NOT use generic centered text blocks. Keep typography aligned left, heavy, and structured.",
+    "Inject fonts via Google Fonts in index.html: Cabinet Grotesk (from Fontshare API) and IBM Plex Sans/Mono (from Google Fonts).",
+    "All interactive elements MUST have data-testid attributes (e.g., data-testid='contact-submit-button').",
+    "Never use transparent backgrounds for the global header dropdowns or nav menus if content scrolls under them. Use solid #050505.",
+    "Ensure 'react-router-dom' is used to link Home, Services, About, and Contact pages seamlessly."
+  ],
+  "universal_guidelines": [
+    "Avoid the 'AI slop' look: no generic gradients, no rounded cartoonish buttons. Sharp, editorial, high-end.",
+    "Ensure layering through z-index for the marquee and overlapping grid elements.",
+    "All transitions should apply specifically to properties (e.g., transition-colors) and exclude transforms to avoid conflict with framer-motion.",
+    "Micro-animations are mandatory: hover states on cards, links, and buttons.",
+    "Images must not use placeholders. Use the provided URLs."
+  ]
+}
